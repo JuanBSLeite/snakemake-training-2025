@@ -13,7 +13,7 @@ Please prepare the python enviroment:
 
 ```bash
 python3 -m venv .snakenv
-source .snakenv
+source .snakenv/bin/activate
 pip3 install snakemake uproot matplotlib numpy pandas zfit
 ```
 
@@ -21,7 +21,7 @@ or
 
 ```bash
 python -m venv .snakenv
-source .snakenv
+source .snakenv/bin/activate
 pip install snakemake uproot matplotlib numpy pandas zfit
 ```
 

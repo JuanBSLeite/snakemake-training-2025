@@ -1,0 +1,23 @@
+
+samples = ["BuToPiPiPi", "BuToKKK"]
+ext = ["png", "pdf"]
+
+outputs = []
+
+for sample in samples:
+    for e in ext:
+        outputs.append(f"plots/aggregating_inputs_iii/{sample}.{e}")
+
+rule all:
+    input:
+        outputs
+
+rule plotHistogram:
+    input:
+        root_file="data/{sample}.root",
+        script="src/Basic/plotHistogram.py"
+    output:
+        "plots/aggregating_inputs_iii/{sample}.{ext}"
+    shell:
+        "python {input.script} {input.root_file} {output}"
+        

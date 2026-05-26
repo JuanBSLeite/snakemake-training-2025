@@ -1,0 +1,10 @@
+
+rule plotHistogram:
+    input:
+        root_file="data/{sample}.root",
+        script="src/Basic/plotHistogram.py"
+    output:
+        "plots/generalizing_rules/{sample}.png"
+    shell:
+        "python {input.script} {input.root_file} {output}"
+        

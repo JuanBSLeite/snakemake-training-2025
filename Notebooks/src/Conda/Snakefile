@@ -1,0 +1,18 @@
+
+samples = ["BuToPiPiPi", "BuToKKK"]
+ext = ["png", "pdf"]
+
+rule all:
+    input:
+        expand("plots/conda/{sample}.{ext}", sample=samples, ext=ext)
+
+rule plotHistogram:
+    input:
+        "data/{sample}.root",
+    output:
+        "plots/conda/{sample}.{ext}"
+    conda:
+        "env.yaml"
+    script:
+       "plotHistogram.py"
+       

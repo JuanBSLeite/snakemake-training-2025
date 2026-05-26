@@ -1,0 +1,10 @@
+
+rule plotHistogram:
+    input:
+        root_file="data/BuToPiPiPi.root",
+        script="src/Basic/plotHistogram.py"
+    output:
+        "plots/basic/Dalitz.png"
+    shell:
+        "python {input.script} {input.root_file} {output}"
+        

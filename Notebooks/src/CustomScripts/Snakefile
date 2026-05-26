@@ -1,0 +1,16 @@
+
+samples = ["BuToPiPiPi", "BuToKKK"]
+ext = ["png", "pdf"]
+
+rule all:
+    input:
+        expand("plots/custom_scripts/{sample}.{ext}", sample=samples, ext=ext)
+
+rule plotHistogram:
+    input:
+        "data/{sample}.root",
+    output:
+        "plots/custom_scripts/{sample}.{ext}"
+    script:
+       "plotHistogram.py"
+       

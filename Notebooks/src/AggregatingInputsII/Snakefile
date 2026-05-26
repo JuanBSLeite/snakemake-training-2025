@@ -1,0 +1,17 @@
+
+samples = ["BuToPiPiPi", "BuToKKK"]
+ext = ["png", "pdf"]
+
+rule all:
+    input:
+        expand("plots/aggregating_inputs_ii/{sample}.{ext}", sample=samples, ext=ext)
+
+rule plotHistogram:
+    input:
+        root_file="data/{sample}.root",
+        script="src/Basic/plotHistogram.py"
+    output:
+        "plots/aggregating_inputs_ii/{sample}.{ext}"
+    shell:
+        "python {input.script} {input.root_file} {output}"
+        
